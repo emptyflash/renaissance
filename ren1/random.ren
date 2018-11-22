@@ -1,0 +1,12 @@
+random st = fract (sin (dot st (vec2 12.9898 78.233)))
+
+noise st = 
+
+uniform vec2 size
+uniform float time
+
+st = gl_FragCoord / size
+
+rnd = random st
+rnd2 = random (vec2 0.5 0.5)
+gl_FragColor = vec4 rnd rnd2 rnd 1.0

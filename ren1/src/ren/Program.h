@@ -94,7 +94,7 @@ namespace ren {
         }
 
         bool hasDefinition(const string& name) const {
-            return getDefinition(name);
+            return !!getDefinition(name);
         }
 
         // Program Value data.

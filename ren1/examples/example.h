@@ -43,7 +43,7 @@ void checkOpenGLErrors() {
 
 void loadShader(GLhandleARB shader, const std::string& source) {
     const GLcharARB* sources[] = { source.data()   };
-    GLint lengths[]            = { source.length() };
+    GLint lengths[]            = { (GLint) source.length() };
     glShaderSourceARB(shader, 1, sources, lengths);
     glCompileShaderARB(shader);
 

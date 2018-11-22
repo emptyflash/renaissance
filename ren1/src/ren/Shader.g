@@ -35,6 +35,9 @@ tokens {
     IF   = "if";
     THEN = "then";
     ELSE = "else";
+
+    LET = "let";
+    IN = "in";
 }
 
 ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
@@ -93,7 +96,7 @@ attribute : ATTRIBUTE^ ID ID ;
 
 definition: leftSide IS^ expr ;
 leftSide: ID^ args ;
-args: (ID)* ;
+args: (ID)? ;
 
 expr: concatExpr ;
 
@@ -108,6 +111,7 @@ multExpr:   signExpr ( (TIMES^ | OVER^) signExpr)* ;
 
 signExpr
     :  IF^ expr THEN! signExpr ELSE! signExpr
+    |  LET^ (definition)* IN signExpr
     |  app
     |! PLUS  pa:app { #signExpr = #([POSITIVE, "+"], pa); }
     |! MINUS ma:app { #signExpr = #([NEGATIVE, "-"], ma); }
@@ -226,6 +230,13 @@ expr returns [SyntaxNodePtr node] {
             v[1] = cond;
             v[2] = lhs;
             v[3] = rhs;
+            node.reset(new ApplySyntaxNode(v));
+        }
+    | #(LET lhs=expr rhs=expr) {
+            v.resize(3);
+            v[0].reset(new ValueSyntaxNode("let"));
+            v[1] = lhs;
+            v[2] = rhs;
             node.reset(new ApplySyntaxNode(v));
         }
     | #(APPLY e=expr v=values) {

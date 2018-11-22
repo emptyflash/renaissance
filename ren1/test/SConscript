@@ -32,8 +32,8 @@ sources = Split("""
     Types.cpp
 """)
 
-runner = env.Program('testRunner', sources)
-AlwaysBuild( env.Alias('test', [runner], runner[0].path) )
+#runner = env.Program('testRunner', sources)
+#AlwaysBuild( env.Alias('test', [runner], runner[0].path) )
 
-testProgramsLocation = Dir('#/stage/bin')
-env.Alias('testprogs', testProgramsLocation)
+#testProgramsLocation = Dir('#/stage/bin')
+#env.Alias('testprogs', testProgramsLocation)

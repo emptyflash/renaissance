@@ -1,3 +1,3 @@
-foo = gl_Vertex.xyz.xy.x
+foo = gl_Vertex.xyz
 py = gl_Vertex.y
-gl_FragColor = vec4 py py py py
+gl_FragColor = vec4 foo py 

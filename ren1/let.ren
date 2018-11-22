@@ -1,0 +1,2 @@
+ a b = let c = b + 1.0 in c + c
+gl_FragColor = vec4 1.0

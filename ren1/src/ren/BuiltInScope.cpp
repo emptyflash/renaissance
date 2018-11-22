@@ -185,25 +185,60 @@ namespace ren {
             { "pow", FLOAT * FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
 
             { "mix",   VEC3 * VEC3 * FLOAT           >> VEC3, CONSTANT, FUNCTION, PUNT },
+
+            { "vec2",  FLOAT                         >> VEC2, CONSTANT, FUNCTION, LINEAR },
             { "vec2",  FLOAT * FLOAT                 >> VEC2, CONSTANT, FUNCTION, LINEAR },
+
+            { "vec3",  FLOAT                         >> VEC3, CONSTANT, FUNCTION, LINEAR },
             { "vec3",  FLOAT * FLOAT * FLOAT         >> VEC3, CONSTANT, FUNCTION, LINEAR },
+            { "vec3",  VEC2 * FLOAT                  >> VEC3, CONSTANT, FUNCTION, LINEAR },
+
+            { "vec4",  FLOAT                         >> VEC4, CONSTANT, FUNCTION, LINEAR },
+            { "vec4",  VEC2 * FLOAT * FLOAT          >> VEC4, CONSTANT, FUNCTION, LINEAR },
+            { "vec4",  VEC3 * FLOAT                  >> VEC4, CONSTANT, FUNCTION, LINEAR },
             { "vec4",  FLOAT * FLOAT * FLOAT * FLOAT >> VEC4, CONSTANT, FUNCTION, LINEAR },
+
+            { "mat4",  FLOAT                         >> MAT4, CONSTANT, FUNCTION, LINEAR },
+            { "mat4",  FLOAT * FLOAT * FLOAT * FLOAT >> MAT4, CONSTANT, FUNCTION, LINEAR },
 
             { "fract", FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
             { "fract", VEC2  >> VEC2,  CONSTANT, FUNCTION, PUNT },
 
+            { "floor", FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
+
             { "step",  VEC2 * VEC2 >> VEC2, CONSTANT, FUNCTION, PUNT },
 
+            { "smoothstep",  VEC2 * VEC2 * FLOAT >> VEC2, CONSTANT, FUNCTION, PUNT },
+            { "smoothstep",  FLOAT * FLOAT * FLOAT >> VEC2, CONSTANT, FUNCTION, PUNT },
+
+            { "dot", VEC2 * VEC2 >> FLOAT , CONSTANT, FUNCTION, PUNT },
             { "dot", VEC3 * VEC3 >> FLOAT, CONSTANT, FUNCTION, PUNT },
+            { "dot", VEC4 * VEC4 >> FLOAT, CONSTANT, FUNCTION, PUNT },
 
             { "max", FLOAT * FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
 
-            { "y",   VEC2 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
-            { "y",   VEC4 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
-            { "xyz", VEC4 >> VEC3,  CONSTANT, SWIZZLE, LINEAR },
-            { "xy",  VEC4 >> VEC2,  CONSTANT, SWIZZLE, LINEAR },
-            { "x",   VEC4 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "sin", FLOAT  >> FLOAT, CONSTANT, FUNCTION, PUNT },
+            { "cos", FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
+            { "tan", FLOAT >> FLOAT, CONSTANT, FUNCTION, PUNT },
+
             { "x",   VEC2 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "x",   VEC3 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "x",   VEC4 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+
+            { "y",   VEC2 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "y",   VEC3 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "y",   VEC4 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+
+            { "z",   VEC2 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "z",   VEC3 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+            { "z",   VEC4 >> FLOAT, CONSTANT, SWIZZLE, LINEAR },
+
+            { "xy",  VEC3 >> VEC2,  CONSTANT, SWIZZLE, LINEAR },
+            { "xy",  VEC4 >> VEC2,  CONSTANT, SWIZZLE, LINEAR },
+
+            { "xyz", VEC3 >> VEC3,  CONSTANT, SWIZZLE, LINEAR },
+            { "xyz", VEC4 >> VEC3,  CONSTANT, SWIZZLE, LINEAR },
+
             { "wxyz", VEC4 >> VEC4, CONSTANT, SWIZZLE, LINEAR },
         };
 

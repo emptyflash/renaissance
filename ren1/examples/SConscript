@@ -6,6 +6,6 @@ sources = Split("""
     glew.c
 """)
 
-env.Program('temperature', ['temperature.cpp'] + sources)
-env.Program('brick',       ['brick.cpp']       + sources)
-env.Program('demo',        ['demo.cpp']        + sources)
+#env.Program('temperature', ['temperature.cpp'] + sources)
+#env.Program('brick',       ['brick.cpp']       + sources)
+#env.Program('demo',        ['demo.cpp']        + sources)

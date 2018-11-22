@@ -6,7 +6,7 @@ def generate(env):
     elif env['PLATFORM'] == 'win32':
         env.Append(LIBS=['SDL', 'SDLmain'])
     else:
-        env.ParseConfig('sdl-config', ['--cflags', '--libs'])
+        env.ParseConfig('sdl-config --cflags --libs')
 
 def exists(env):
     return 1

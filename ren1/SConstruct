@@ -10,7 +10,7 @@ else:
     env.Append(CXXFLAGS=['/GX', '/GR'])
 
 if env.subst('$CC') == 'gcc':
-    env.Append(CCFLAGS=['-Wall', '-g', '-Werror'],
+    env.Append(CCFLAGS=['-Wall', '-g'],
                LINKFLAGS=['-g'])
 
 Export('env')
