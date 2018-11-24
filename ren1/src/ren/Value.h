@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <sstream>
 #include "Types.h"
+#include <stdio.h>
 
 
 namespace ren {

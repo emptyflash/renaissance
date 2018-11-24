@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <boost/shared_ptr.hpp>
 #include "Compiler.h"
+#include <iterator> //for std::istream_iterator 
+
 using namespace ren;
 
 
@@ -13,6 +15,7 @@ int usage() {
 
 
 int main(int argc, char** argv) {
+    /*
     if (argc != 2) {
         return usage();
     }
@@ -38,6 +41,14 @@ int main(int argc, char** argv) {
         return usage();
     }
     contents[length] = 0;  // zero-terminate.
+    */
+
+    std::vector<char> contents;
+    char input;
+    while (std::cin.get(input))
+    {
+        contents.push_back(input);
+    }
 
     CompileResult cr = compile(&contents[0]);
     if (cr.success) {

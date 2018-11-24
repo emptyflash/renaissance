@@ -1,7 +1,5 @@
 random st = fract (sin (dot st (vec2 12.9898 78.233)))
 
-noise st = 
-
 uniform vec2 size
 uniform float time
 

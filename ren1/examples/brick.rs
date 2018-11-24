@@ -33,7 +33,7 @@ viewVec    = normalize (-ecPosition)
 
 diffuse = max (dot lightVec viewVec) 0.0
 s = pow (max (dot reflectVec viewVec) 0.0) 3.0
-spec = if (diffuse > 0.0) then s else 0.0
+spec = if diffuse > 0.0 then s else 0.0
 LightIntensity = DiffuseContribution * diffuse + SpecularContribution * spec
 
 # Brick.

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <sstream>
+#include <stdio.h>
 
 namespace ren {
 
