@@ -1,0 +1,11 @@
+attribute vec4 a_position
+gl_Position = a_position
+
+uniform vec2 u_resolution
+uniform float u_time
+
+st = gl_FragCoord.xy / u_resolution * 3.0
+
+a = fbm (vec2 (fbm st) (fbm st))
+
+gl_FragColor = vec4 a a a 1.0
